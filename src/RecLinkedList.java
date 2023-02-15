@@ -99,5 +99,19 @@ public class RecLinkedList {
         return data + ", " + next.toString();
     }
 
+    /**
+     * Remove at index
+     * @param i int: index
+     */
+    public void remove(int i) {
 
+    }
+
+    /**
+     * Remove first occurance of a node with the given data
+     * @param data String: Data
+     */
+    public void remove(String data) {
+
+    }
 }
