@@ -37,7 +37,8 @@ class RecLinkedListTest {
         list.prepend("0");
         boolean test = "0".equals(list.getElementData(0));
     }
-    @Test void add_atIndex() {
+    @Test
+    void add_atIndex() {
         RecLinkedList list = new RecLinkedList("0");
         list.add("1");
         list.add("3");
@@ -48,4 +49,29 @@ class RecLinkedListTest {
         assertEquals("2", list.getElementData(3), "Did not return correct element");
         assertEquals("10", list.getElementData(0), "Did not return correct element");
     }
+    @Test
+    void remove_atIndex() {
+        RecLinkedList list = new RecLinkedList("0");
+        list.add("1");
+        list.add("remove");
+        list.add("2");
+        list.add("3");
+        list.remove(2);
+        assertEquals("2", list.getElementData(2), "Did not remove :(");
+        list.remove(0);
+        assertEquals("1", list.getElementData(0), "Did not remove first element :(");
+    }
+    @Test
+    void remove_String() {
+        RecLinkedList list = new RecLinkedList("0");
+        list.add("1");
+        list.add("remove");
+        list.add("2");
+        list.add("3");
+        list.remove("remove");
+        list.remove("0");
+        assertEquals("1", list.getElementData(0), "Did not remove element");
+        assertEquals("2", list.getElementData(1), "Did not remove element :(");
+    }
+
 }

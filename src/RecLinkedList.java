@@ -99,5 +99,30 @@ public class RecLinkedList {
         return data + ", " + next.toString();
     }
 
+    /**
+     * Remove at index
+     * @param i int: index
+     */
+    public void remove(int i) {
+        if (i == 0) {
+            data = next.data;
+            next = next.next;
+            return;
+        }
+        RecLinkedList node = getNodeAt(i-1);
+        node.next = node.next.next;
+    }
 
+    /**
+     * Remove first occurance of a node with the given data
+     * @param data String: Data
+     */
+    public void remove(String data) {
+        if (this.data.equals(data)) {
+            this.data = next.data;
+            next = next.next;
+            return;
+        }
+        next.remove(data);
+    }
 }
