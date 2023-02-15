@@ -104,7 +104,13 @@ public class RecLinkedList {
      * @param i int: index
      */
     public void remove(int i) {
-
+        if (i == 0) {
+            data = next.data;
+            next = next.next;
+            return;
+        }
+        RecLinkedList node = getNodeAt(i-1);
+        node.next = node.next.next;
     }
 
     /**
