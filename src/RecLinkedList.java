@@ -28,6 +28,12 @@ public class RecLinkedList {
         next.add(data);
         return true;
     }
+
+    /**
+     * Will get the element at an index position.
+     * @param i index
+     * @return String of the data in the linkedList
+     */
     String getElementData(int i) {
         return "";
     }
