@@ -15,12 +15,23 @@ public class RecLinkedList {
     public RecLinkedList(String data) {
         this.data = data;
     }
+
+    /**
+     * Will calculate the length
+     * @return int: Length of the LinkedList
+     */
     int getLength() {
         if (next == null) {
             return 1;
         }
         return next.getLength()+1;
     }
+
+    /**
+     * Appends the element at the end of the list
+     * @param data
+     * @return boolean: if it was successful
+     */
     boolean add(String data) {
         if (next == null) {
             next = new RecLinkedList(data);
@@ -30,6 +41,41 @@ public class RecLinkedList {
         return true;
     }
 
+    void prepend(String data) {
+        RecLinkedList newNode = new RecLinkedList(this.data);
+        newNode.next = next;
+        this.data = data;
+        next = newNode;
+    }
+
+    /**
+     * Add element anywhere in the list
+     * @return if it was successfull
+     */
+    boolean add(int i, String data) {
+        if (i == 0) {
+            prepend(data);
+            return true;
+        }
+        RecLinkedList node = getNodeAt(i-1);
+        RecLinkedList newNode = new RecLinkedList(data);
+        newNode.next = node.next;
+        node.next =  newNode;
+
+        return false;
+    }
+
+    /**
+     * Get a node pointer at an index
+     * @param i
+     * @return
+     */
+    private RecLinkedList getNodeAt(int i) {
+        if (i == 0) {
+            return this;
+        }
+        return next.getNodeAt(i-1);
+    }
     /**
      * Will get the element at an index position.
      * @param i index
@@ -41,4 +87,17 @@ public class RecLinkedList {
         }
         return next.getElementData(i-1);
     }
+
+    /**
+     * Returns the LinkedList in a list
+     * @return String: List of nodes
+     */
+    public String toString() {
+        if (next == null) {
+            return data;
+        }
+        return data + ", " + next.toString();
+    }
+
+
 }
