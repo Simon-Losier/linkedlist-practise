@@ -118,6 +118,11 @@ public class RecLinkedList {
      * @param data String: Data
      */
     public void remove(String data) {
-
+        if (this.data.equals(data)) {
+            this.data = next.data;
+            next = next.next;
+            return;
+        }
+        next.remove(data);
     }
 }
