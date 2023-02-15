@@ -1,6 +1,7 @@
 /**
  * Recursive implementation of a Linkedlist
- *
+ * @author Simon Losier
+ * @email Simon@Simlo.tech
  */
 
 public class RecLinkedList {
@@ -28,7 +29,16 @@ public class RecLinkedList {
         next.add(data);
         return true;
     }
+
+    /**
+     * Will get the element at an index position.
+     * @param i index
+     * @return String of the data in the linkedList
+     */
     String getElementData(int i) {
-        return "";
+        if (i == 0) {
+            return data;
+        }
+        return next.getElementData(i-1);
     }
 }
