@@ -15,18 +15,37 @@ public class RecLinkedList {
     public RecLinkedList(String data) {
         this.data = data;
     }
+
+    /**
+     * Will calculate the length
+     * @return int: Length of the LinkedList
+     */
     int getLength() {
         if (next == null) {
             return 1;
         }
         return next.getLength()+1;
     }
+
+    /**
+     * Appends the element at the end of the list
+     * @param data
+     * @return boolean: if it was successful
+     */
     boolean add(String data) {
         if (next == null) {
             next = new RecLinkedList(data);
             return true;
         }
         next.add(data);
+        return true;
+    }
+
+    /**
+     * Add element anywhere in the list
+     * @return if it was successfull
+     */
+    boolean add(int i, String data) {
         return true;
     }
 
@@ -41,4 +60,6 @@ public class RecLinkedList {
         }
         return next.getElementData(i-1);
     }
+
+
 }
