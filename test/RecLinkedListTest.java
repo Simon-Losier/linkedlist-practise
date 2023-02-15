@@ -27,4 +27,25 @@ class RecLinkedListTest {
         test ="4".equals(list.getElementData(4));
         assertTrue(test, "Does not return the correct element");
     }
+    @Test
+    void prepend() {
+        RecLinkedList list = new RecLinkedList("1");
+        list.add("2");
+        list.add("3");
+        list.add("4");
+        list.add("5");
+        list.prepend("0");
+        boolean test = "0".equals(list.getElementData(0));
+    }
+    @Test void add_atIndex() {
+        RecLinkedList list = new RecLinkedList("0");
+        list.add("1");
+        list.add("3");
+        list.add("4");
+        list.add("5");
+        list.add(2, "2");
+        list.add(0, "10");
+        assertEquals("2", list.getElementData(3), "Did not return correct element");
+        assertEquals("10", list.getElementData(0), "Did not return correct element");
+    }
 }
