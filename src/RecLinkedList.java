@@ -57,7 +57,24 @@ public class RecLinkedList {
             prepend(data);
             return true;
         }
+        RecLinkedList node = getNodeAt(i-1);
+        RecLinkedList newNode = new RecLinkedList(data);
+        newNode.next = node.next;
+        node.next =  newNode;
+
         return false;
+    }
+
+    /**
+     * Get a node pointer at an index
+     * @param i
+     * @return
+     */
+    private RecLinkedList getNodeAt(int i) {
+        if (i == 0) {
+            return this;
+        }
+        return next.getNodeAt(i-1);
     }
     /**
      * Will get the element at an index position.
@@ -69,6 +86,17 @@ public class RecLinkedList {
             return data;
         }
         return next.getElementData(i-1);
+    }
+
+    /**
+     * Returns the LinkedList in a list
+     * @return String: List of nodes
+     */
+    public String toString() {
+        if (next == null) {
+            return data;
+        }
+        return data + ", " + next.toString();
     }
 
 
