@@ -41,14 +41,24 @@ public class RecLinkedList {
         return true;
     }
 
+    void prepend(String data) {
+        RecLinkedList newNode = new RecLinkedList(this.data);
+        newNode.next = next;
+        this.data = data;
+        next = newNode;
+    }
+
     /**
      * Add element anywhere in the list
      * @return if it was successfull
      */
     boolean add(int i, String data) {
-        return true;
+        if (i == 0) {
+            prepend(data);
+            return true;
+        }
+        return false;
     }
-
     /**
      * Will get the element at an index position.
      * @param i index
